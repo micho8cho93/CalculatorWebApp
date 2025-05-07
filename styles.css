@@ -1,24 +1,86 @@
 body {
-    margin-top: 40vh;
-    margin-left: 40vw;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 75vh;
 }
 
 .calculator {
-    border: 2px solid black;
-    padding: 1rem;
-    max-width: 30vw;
-    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.3rem;
+    
 }
 
 .screen {
     border: 1px solid black;
-    min-height: 5vh;
+    height: 6vh;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: right;
+    padding: 1vw;
+    overflow: hidden;
 }
 
-.container {
-    border: 1px solid black;
+.card-text {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    min-height: 5vh;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    max-width: 2rem !important;
+}
+
+.equals {
+    max-width: 22vw !important;
+    min-width: 3vw !important;
+    width: 100%;
+}
+
+
+/* Media queries */
+
+/* smaller screens */
+@media (max-width: 400px) {
+    .calculator {
+        padding: 0.75rem;
+    }
+    
+    .btn {
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .screen {
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* very small screens */
+@media (max-width: 320px) {
+    body {
+        margin: 0;
+    }
+    .calculator {
+        padding: 0.5rem;
+    }
+    
+    .btn {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .card-text {
+        gap: 0.3rem;
+        margin-bottom: 0.3rem;
+    }
 }
