@@ -15,7 +15,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1.3rem;
-    
+    min-height: 45vh auto;
+    min-width: 20vw auto;
+    box-shadow: rgba(255, 255, 255) 0px 0px 32px, rgba(255, 255, 255) 0px 10px 26px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .screen {
@@ -37,6 +39,8 @@ body {
 
 .btn {
     max-width: 2rem !important;
+    display: flex;
+    justify-content: center;
 }
 
 .equals {
