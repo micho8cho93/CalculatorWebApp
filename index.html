@@ -10,36 +10,36 @@
 </head>
 <body class="bg-dark">
     <section class="card calculator bg-light" id="calculator">
-        <div class=" card-header screen bg-dark" id="screen">
+        <div class=" card-header screen bg-dark text-primary" id="screen">
         </div>
         <div class="card-text" id="container1">
-            <button type="button" class="btn btn-danger">AC</button>
-            <button type="button" class="btn btn-danger">+/-</button>
-            <button type="button" class="btn btn-danger">%</button>
-            <button type="button" class="btn btn-warning">/</button>
+            <button data-type="clear" class="btn btn-danger">AC</button>
+            <button type="negate" class="btn btn-danger">+/-</button>
+            <button data-type="operator" class="btn btn-danger">%</button>
+            <button data-type="operator" class="btn btn-warning">/</button>
         </div>
         <div class="card-text" id="container2">
-            <button type="button" class="btn btn-primary">7</button>
-            <button type="button" class="btn btn-primary">8</button>
-            <button type="button" class="btn btn-primary">9</button>
-            <button type="button" class="btn btn-warning">x</button>
+            <button data-type="number" class="btn btn-primary">7</button>
+            <button data-type="number" class="btn btn-primary">8</button>
+            <button data-type="number" class="btn btn-primary">9</button>
+            <button data-type="operator" class="btn btn-warning">x</button>
         </div>
         <div class="card-text" id="container3">
-            <button type="button" class="btn btn-primary">4</button>
-            <button type="button" class="btn btn-primary">5</button>
-            <button type="button" class="btn btn-primary">6</button>
-            <button type="button" class="btn btn-warning">-</button>
+            <button data-type="number" class="btn btn-primary">4</button>
+            <button data-type="number" class="btn btn-primary">5</button>
+            <button data-type="number" class="btn btn-primary">6</button>
+            <button data-type="operator" class="btn btn-warning">-</button>
         </div>
         <div class="card-text" id="container4">
-            <button type="button" class="btn btn-primary">1</button>
-            <button type="button" class="btn btn-primary">2</button>
-            <button type="button" class="btn btn-primary">3</button>
-            <button type="button" class="btn btn-warning">+</button>
+            <button data-type="number" class="btn btn-primary">1</button>
+            <button data-type="number" class="btn btn-primary">2</button>
+            <button data-type="number" class="btn btn-primary">3</button>
+            <button data-type="operator" class="btn btn-warning">+</button>
         </div>
         <div class="card-text" id="container5">
-            <button type="button" class="btn btn-primary">0</button>
-            <button type="button" class="btn btn-primary">.</button>
-            <button type="button" class="btn btn-info equals">=</button>
+            <button data-type="number" class="btn btn-primary">0</button>
+            <button data-type="number" class="btn btn-primary">.</button>
+            <button data-type="equals" class="btn btn-info equals">=</button>
         </div>
     </section>
 </body>
