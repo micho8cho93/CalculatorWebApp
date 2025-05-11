@@ -9,7 +9,9 @@ const equalsBtn = document.querySelector('[data-type="equals"]');
 let currentValue = '';
 let firstNumber = '';
 let num = '';
+let result = '';
 let operatorMode = '';
+let enteringSecondNumber = false;
 
 numberBtns.forEach(btn => {
     btn.addEventListener('click', handleNumberInput);
@@ -19,43 +21,144 @@ operatorBtns.forEach(btn => {
     btn.addEventListener('click', handleOperators);
 });
 
+equalsBtn.addEventListener('click', handleEquals);
+
+clearBtn.addEventListener('click', handleClear);
+
+negateBtn.addEventListener('click', handleNegate);
+
 function handleNumberInput(event) {
     const number = event.target;
 
     if (!number.classList.contains('btn-primary')) return;
 
+
     const value = number.innerText;
 
     // Append number and update screen
-    firstNumber = firstNumber.concat(value);
-    screen.innerText = firstNumber;
-
+    if (enteringSecondNumber == false) {
+        firstNumber = firstNumber.concat(value);
+        screen.innerText = firstNumber;
+    } else if (enteringSecondNumber == true) {
+        num = num.concat(value);
+        screen.innerText = num;
+    }
 }
 
 function handleOperators(event) {
     // create logic to handle operators
     const operatorBtn = event.target;
+    enteringSecondNumber = true;
     
     if (!operatorBtn.classList.contains('btn-warning')) return;
+    currentValue = parseFloat(firstNumber);
 
-    currentValue = firstNumber;
-    
-    firstNumber = num;
-    
+    const operator = operatorBtn.innerText;
+
+    if (operator == '+') {
+        operatorMode = 'add';
+        return operatorMode;
+    } else if (operator == '-') {
+        operatorMode = 'subtract';
+        return operatorMode;
+    }
+    else if (operator == 'x') {
+        operatorMode = 'multiply';
+        return operatorMode;
+    }
+    else if (operator == '/') {
+        operatorMode = 'divide';
+        return operatorMode;
+    }
+    else if (operator === '%') {
+        operatorMode = 'remainder';
+        return operatorMode;
+    }
 
 }
 
 function handleEquals(event) {
-    const eqlBtn = event.target;
+    num = parseFloat(num);
+    const calc = new Calculator(currentValue);
 
+    const eqlBtn = event.target;
     if (!eqlBtn.classList.contains('btn-info')) return;
 
+    
+
     if (currentValue != '' && num != '') {
-        
+        switch(operatorMode) {
+            case 'add':
+                result = calc.add(num);
+                screen.innerText = result;
+                firstNumber = result;
+                num = '';
+                enteringSecondNumber = false;
+                break;
+
+            case 'subtract':
+                result = calc.subtract(num);
+                screen.innerText = result;
+                firstNumber = result;
+                num = '';
+                enteringSecondNumber = false;
+                break;
+            
+            case 'multiply':
+                result = calc.multiply(num);
+                screen.innerText = result;
+                firstNumber = result;
+                num = '';
+                enteringSecondNumber = false;
+                break;
+
+            case 'divide':
+                result = calc.divide(num);
+                screen.innerText = result;
+                firstNumber = result;
+                num = '';
+                enteringSecondNumber = false;
+                break;
+
+            case 'remainder':
+                result = calc.remainder(num);
+                screen.innerText = result;
+                firstNumber = result;
+                num = '';
+                enteringSecondNumber = false;
+                break;
+        }
     }
 }
 
-console.log("this is currentValue:", currentValue);
+function handleClear(event) {
+    const acBtn = event.target;
+
+    if (!acBtn.classList.contains('clearBtn')) return;
+
+    currentValue = '';
+    firstNumber = '';
+    num = '';
+    result = '';
+    operatorMode = '';
+    enteringSecondNumber = false;
+    screen.innerText = '';
+}
+
+function handleNegate(event) {
+    const negate = event.target;
+    const minus = '-';
+
+    if (!negate.classList.contains('negateBtn')) return;
+
+    if (enteringSecondNumber == false && firstNumber != '' && firstNumber[0] != '-') {
+        firstNumber = minus.concat(firstNumber);
+        screen.innerText = firstNumber;
+    } else if (enteringSecondNumber == true && num != '' && num[0] != '-') {
+        num = minus.concat(num);
+        screen.innerText = num;
+    }
+}
 
 class Calculator {
     constructor(currentValue) {
@@ -107,4 +210,5 @@ class Calculator {
     }
 }
 
-const calc = new Calculator();
+
+

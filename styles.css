@@ -40,7 +40,7 @@ body {
 
 .btn {
     max-width: none !important; /* Remove width constraint */
-    min-width: 60px;    /* Set minimum width */
+    min-width: 65px;    /* Set minimum width */
     height: 60px;       /* Set fixed height */
     display: flex;
     justify-content: center;
@@ -48,6 +48,7 @@ body {
     font-size: 1.3rem;  /* Larger button text */
     border-radius: 6px; /* More rounded corners */
 }
+
 
 /* Make the equals button special */
 .equals {
