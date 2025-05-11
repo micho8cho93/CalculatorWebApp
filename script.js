@@ -7,11 +7,16 @@ const negateBtn = document.querySelector('[data-type="negate"]');
 const equalsBtn = document.querySelector('[data-type="equals"]');
 
 let currentValue = '';
-let currentNumber = '';
+let firstNumber = '';
+let num = '';
 let operatorMode = '';
 
 numberBtns.forEach(btn => {
     btn.addEventListener('click', handleNumberInput);
+});
+
+operatorBtns.forEach(btn => {
+    btn.addEventListener('click', handleOperators);
 });
 
 function handleNumberInput(event) {
@@ -22,16 +27,35 @@ function handleNumberInput(event) {
     const value = number.innerText;
 
     // Append number and update screen
-    currentValue = currentValue.concat(value);
-    screen.innerText = currentValue;
-    console.log(currentValue);
+    firstNumber = firstNumber.concat(value);
+    screen.innerText = firstNumber;
+
 }
 
 function handleOperators(event) {
     // create logic to handle operators
+    const operatorBtn = event.target;
+    
+    if (!operatorBtn.classList.contains('btn-warning')) return;
+
+    currentValue = firstNumber;
+    
+    firstNumber = num;
+    
+
 }
 
+function handleEquals(event) {
+    const eqlBtn = event.target;
 
+    if (!eqlBtn.classList.contains('btn-info')) return;
+
+    if (currentValue != '' && num != '') {
+        
+    }
+}
+
+console.log("this is currentValue:", currentValue);
 
 class Calculator {
     constructor(currentValue) {
